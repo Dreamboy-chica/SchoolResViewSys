@@ -1,0 +1,10 @@
+let express=require("express")
+const { add, getres, getdata, sortdata, upd, del } = require("../controler/rscont")
+let route=new express.Router()
+route.post("/add",add)
+route.get("/getres/:hno",getres)
+route.get("/data",getdata)
+route.get("/sortdata/:fname",sortdata)
+route.post("/upd",upd)
+route.post("/del",del)
+module.exports=route
