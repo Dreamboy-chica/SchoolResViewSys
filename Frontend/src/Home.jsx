@@ -55,6 +55,7 @@ const Home = () => {
             <table>
                 <thead>
                     <tr>
+                        <th>Select</th> {/* Keep the header title for the checkbox column */}
                         <th onClick={() => fun('_id')}>HNO</th>
                         <th onClick={() => fun('name')}>Name</th>
                         <th onClick={() => fun('dept')}>Dept</th>
@@ -65,32 +66,31 @@ const Home = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        data.map((item) => (
-                            <tr key={item._id}>
-                                <td><input type='checkbox' onChange={(e) => chk(e, item._id)} /></td>
-                                <td>{item._id}</td>
-                                <td>{item.name}</td>
-                                <td>{item.dept}</td>
-                                <td>{item.gen}</td>
-                                <td>{item.marks}</td>
-                                <td>{item.phno}</td>
-                                <td>
-                                    <button onClick={() => view(item)} className='m-2 btn btn-success'>View</button>
-                                    <button onClick={() => edit(item)} className='btn btn-success'>Edit</button>
-                                </td>
-                            </tr>
-                        ))
-                    }
+                    {data.map((item) => (
+                        <tr key={item._id}>
+                            <td><input type='checkbox' onChange={(e) => chk(e, item._id)} /></td>
+                            <td>{item._id}</td>
+                            <td>{item.name}</td>
+                            <td>{item.dept}</td>
+                            <td>{item.gen}</td>
+                            <td>{item.marks}</td>
+                            <td>{item.phno}</td>
+                            <td>
+                                <button onClick={() => view(item)} className='m-2 btn btn-success'>View</button>
+                                <button onClick={() => edit(item)} className='btn btn-success'>Edit</button>
+                            </td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
-
-            <button className=" m-2 btn btn-success">
-                <Link to="/add" style={{ color: 'white', textDecoration: 'none' }} >Add Results</Link>
+            <button className="m-2 btn btn-success">
+                <Link to="/add" style={{ color: 'white', textDecoration: 'none' }}>Add Results</Link>
             </button>
             <button onClick={del} className='btn btn-danger'>Delete</button>
         </div>
     );
+    
+    
 }
 
 export default Home;
